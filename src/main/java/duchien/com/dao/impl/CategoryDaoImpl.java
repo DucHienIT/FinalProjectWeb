@@ -16,15 +16,19 @@ public class CategoryDaoImpl extends DBConnection implements CategoryDao {
 
 	@Override
 	public void insert(Category category) throws SQLException {
-		String sql = "INSERT INTO category(cate_name) VALUES (?)";
+		String sql = "INSERT INTO Category(cate_name) VALUES (?)";
 		Connection con = super.getJDBCConnection();
 
 		try {
+			
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, category.getName());
 			ps.executeUpdate();
+	
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
+			System.out.print("Lỗi sql");
 		}
 	}
 

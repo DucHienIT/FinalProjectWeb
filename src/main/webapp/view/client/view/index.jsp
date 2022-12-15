@@ -176,7 +176,7 @@
 			<ul class="list-inline owl-slider">
 
 				<c:forEach items="${pwelcome }" var="p">
-					<c:url value="/Images/${p.image }" var="imgUrl"></c:url>
+					<c:url value="${p.image }" var="imgUrl"></c:url>
 					<li class="item">
 						<div class="product-img" style="text-align: center;">
 							<a
@@ -195,13 +195,11 @@
 											href="${pageContext.request.contextPath }/product/detail?id=${p.id}">${p.name }</a>
 									</h4>
 									<span class="gender text-uppercase">${p.category.name }</span>
-									<span class="gender">${p.des }</span>
+									<%-- <span class="gender">${p.des }</span> --%>
+									<span class="title-price product-description">${p.price } $</span>
 
 								</div>
-								<div class="product-price" style="text-align: left;">
-									<span class="title-price">${p.price } đ</span>
-
-								</div>
+								
 							</div>
 							<ul class="list-inline product-ratings">
 								<li><i class="rating-selected fa fa-star"></i></li>
@@ -227,7 +225,7 @@
 		<div class="row illustration-v2">
 
 			<c:forEach items="${pwelcome }" var="p">
-				<c:url value="/Images/${p.image}" var="imgUrl"></c:url>
+				<c:url value="${p.image}" var="imgUrl"></c:url>
 
 				<div class="col-md-3 col-sm-6 md-margin-bottom-30">
 
@@ -247,13 +245,14 @@
 									<a
 										href="${pageContext.request.contextPath }/product/detail?id=${p.id}">${p.name }</a>
 								</h4>
-								<span class="gender text-uppercase">${p.category.name }</span> <span
-									class="gender">${p.des }</span>
+								<span class="gender text-uppercase">${p.category.name }</span> 
+								<%-- <span
+									class="gender">${p.des }</span> --%>
+									
+								<span class="title-price product-description">${p.price } $</span>
 
 							</div>
-							<div class="product-price" style="text-align: left;">
-								<span class="title-price">${p.price } đ</span>
-							</div>
+							
 						</div>
 						<ul class="list-inline product-ratings">
 							<li><i class="rating-selected fa fa-star"></i></li>

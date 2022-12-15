@@ -1,6 +1,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 
 
 <!-- /. NAV SIDE  -->
@@ -48,7 +48,7 @@
 									<c:forEach items="${proList}" var="pro">
 										<tr class="odd gradeX">
 											<td>${pro.id }</td>
-											<c:url value="/Images/${pro.image}" var="imgUrl"></c:url>
+											<c:url value="${pro.image}" var="imgUrl"></c:url>
 											<td><img height="150" width="150" src="${imgUrl}" /></td>
 
 											<td>${pro.name }</td>

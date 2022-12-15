@@ -48,10 +48,9 @@
 									<c:forEach items="${sessionScope.cart}" var="map">
 
 										<tr>
-											<c:url value="/image?fname=${map.value.product.image }"
+											<c:url value="${map.value.product.image}"
 												var="imgUrl"></c:url>
-											<td class="product-in-table"><img class="img-responsive"
-												src="${imgUrl}" alt="">
+											<td class="product-in-table"><img class="img-responsive" src="${imgUrl}" alt="">
 												<div class="product-it-in">
 													<h3>${map.value.product.name }</h3>
 													<span>${map.value.product.des }</span>

@@ -36,13 +36,18 @@ public class ProductListClientController extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Product> productList = null;
+		List<Category> listCategory = null;
 		try {
 			productList = productService.getAll();
+			listCategory = cateService.getAll();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		req.setAttribute("productList", productList);
+		req.setAttribute("listCategory", listCategory);
+		
+		
 		
 		//Get session username
 		HttpSession session= req.getSession();
@@ -53,6 +58,7 @@ public class ProductListClientController extends HttpServlet {
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/view/client/view/product-list.jsp");
 		dispatcher.forward(req, resp);
-	}// c�i n�y sai
+		
+	}
 
 }

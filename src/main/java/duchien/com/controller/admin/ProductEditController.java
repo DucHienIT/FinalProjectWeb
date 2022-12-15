@@ -83,15 +83,7 @@ public class ProductEditController extends HttpServlet {
 					product.setPrice(Long.parseLong(item.getString()));
 				} else if (item.getFieldName().equals("image")) {
 					if (item.getSize() > 0) {// neu co file d
-						final String dir = "D:\\ProjectFinal\\src\\main\\webapp\\Images";
-						String originalFileName = item.getName();
-						int index = originalFileName.lastIndexOf(".");
-						String ext = originalFileName.substring(index + 1);
-						String fileName = System.currentTimeMillis() + "." + ext;
-						File file = new File(dir + "/" + fileName);
-						item.write(file);
-
-						product.setImage(fileName);
+						product.setImage(item.getString());
 
 					} else {
 

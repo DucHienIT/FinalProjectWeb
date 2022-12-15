@@ -41,7 +41,7 @@ public class CategoryeEditController extends HttpServlet {
 		
 		req.setAttribute("category", category);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/category/edit-category.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/view/edit-category.jsp");
 		dispatcher.forward(req, resp);
 	}
 
@@ -49,16 +49,30 @@ public class CategoryeEditController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		Category category = new Category();
-		category.setId(Integer.parseInt(req.getParameter("id")));
-		category.setName(req.getParameter("name"));
+		DiskFileItemFactory diskFileItemFactory = new DiskFileItemFactory();
+		ServletFileUpload servletFileUpload = new ServletFileUpload(diskFileItemFactory);
 		try {
+			List<FileItem> items = servletFileUpload.parseRequest(req);
+			for (FileItem item : items) {
+				if (item.getFieldName().equals("id")) {
+					category.setId(Integer.parseInt(item.getString()));
+				} else if (item.getFieldName().equals("name")) {
+					category.setName(item.getString());
+				}
+			}
 			cateService.edit(category);
+			resp.sendRedirect(req.getContextPath()+"/admin/category/list");
+			System.out.print("ThanhCONG");
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.print("Lỗi");
+		} catch (FileUploadException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		resp.sendRedirect(req.getContextPath()+"/admin/category/list");
+		
 
 	}
 }

@@ -54,7 +54,8 @@ public class UserAddController extends HttpServlet {
 					user.setPassword(item.getString());
 				} else if (item.getFieldName().equals("role")) {
 					user.setRoleId(Integer.parseInt(item.getString()));;
-				} else if (item.getFieldName().equals("avatar")) {
+				} else if (item.getFieldName().equals("avatar")) 
+				{
 					final String dir = "F:\\upload";
 					String originalFileName = item.getName();
 					int index = originalFileName.lastIndexOf(".");

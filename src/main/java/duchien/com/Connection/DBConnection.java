@@ -20,8 +20,7 @@ public class DBConnection {
 			String user = "duchien";
 			String pass = "duchien";
 			String url = "jdbc:sqlserver://HIENPC\\HIEN;"
-							            + "databaseName=UNIFY;"
-							            + "integratedSecurity=true";
+							            + "databaseName=UNIFY;";
 
 			connection = DriverManager.getConnection(url, user, pass);
 			System.out.println("************JDBC thanh cong***********");

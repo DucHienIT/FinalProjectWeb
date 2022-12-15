@@ -23,6 +23,7 @@ public class ProductDaoImpl extends DBConnection implements ProductDao {
 	public void insert(Product product) throws SQLException {
 		String sql = "INSERT INTO Product(name, price, image, cate_id, des) VALUES (?,?,?,?,?)";
 		Connection con = super.getJDBCConnection();
+		System.out.print("-----------------SQL SQL ------------------------");
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
