@@ -59,8 +59,7 @@ public class OrderController extends HttpServlet {
 			for (CartItem cartItem : map.values()) {
 				cartItem.setCart(cart);
 				cartItem.setId(RandomUUID.getRandomID());
-				//SendMail sm = new SendMail();
-				//sm.sendMail(cart.getBuyer().getEmail(), "UNIFY", "Payment success. We will contact you soon ! ");
+
 				try {
 					cartItemService.insert(cartItem);
 				} catch (SQLException e) {
@@ -69,7 +68,7 @@ public class OrderController extends HttpServlet {
 				}
 				
 			}
-			System.out.println("**********inserted oder to db***********");
+			
 
 		}
 		session.removeAttribute("cart");
