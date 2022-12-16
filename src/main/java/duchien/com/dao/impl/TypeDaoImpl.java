@@ -16,7 +16,7 @@ public class TypeDaoImpl extends DBConnection implements TypeDao {
 
 	@Override
 	public void insert(Type type) throws SQLException {
-		String sql = "INSERT INTO Type(type_name) VALUES (?)";
+		String sql = "INSERT INTO TypePro(type_name) VALUES (?)";
 		Connection con = super.getJDBCConnection();
 
 		try {
@@ -34,7 +34,7 @@ public class TypeDaoImpl extends DBConnection implements TypeDao {
 
 	@Override
 	public void edit(Type type) throws SQLException {
-		String sql = "UPDATE Type SET type_name = ? WHERE type_id = ?";
+		String sql = "UPDATE TypePro SET type_name = ? WHERE type_id = ?";
 		Connection con = super.getJDBCConnection();
 
 		try {
@@ -50,7 +50,7 @@ public class TypeDaoImpl extends DBConnection implements TypeDao {
 
 	@Override
 	public void delete(int id) throws SQLException {
-		String sql = "DELETE FROM Type WHERE type_id = ?";
+		String sql = "DELETE FROM TypePro WHERE type_id = ?";
 		Connection con = super.getJDBCConnection();
 
 		try {
@@ -65,7 +65,7 @@ public class TypeDaoImpl extends DBConnection implements TypeDao {
 
 	@Override
 	public Type get(int id) throws SQLException {
-		String sql = "SELECT * FROM Type WHERE type_id = ? ";
+		String sql = "SELECT * FROM TypePro WHERE type_id = ? ";
 		Connection con = super.getJDBCConnection();
 
 		try {
@@ -91,7 +91,7 @@ public class TypeDaoImpl extends DBConnection implements TypeDao {
 	@Override
 	public List<Type> getAll() throws SQLException {
 		List<Type> categories = new ArrayList<Type>();
-		String sql = "SELECT * FROM Type";
+		String sql = "SELECT * FROM TypePro";
 		Connection conn = super.getJDBCConnection();
 
 		try {
@@ -117,7 +117,7 @@ public class TypeDaoImpl extends DBConnection implements TypeDao {
 	@Override
 	public List<Type> search(String keyword) throws SQLException {
 		List<Type> categories = new ArrayList<Type>();
-		String sql = "SELECT * FROM Type WHERE name LIKE ? ";
+		String sql = "SELECT * FROM TypePro WHERE name LIKE ? ";
 		Connection conn = super.getJDBCConnection();
 
 		try {
@@ -143,7 +143,7 @@ public class TypeDaoImpl extends DBConnection implements TypeDao {
 
 	@Override
 	public Type get(String name) throws SQLException {
-		String sql = "SELECT * FROM Type WHERE type_name = ? ";
+		String sql = "SELECT * FROM TypePro WHERE type_name = ? ";
 		Connection con = super.getJDBCConnection();
 
 		try {
