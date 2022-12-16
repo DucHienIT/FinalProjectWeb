@@ -54,11 +54,19 @@ public class RegisterController extends HttpServlet {
 
 		try {
 			if (service.checkExistEmail(email)) {
-				alertMsg = "Email already exist!";
+				alertMsg = "Number phone already exist!";
 				req.setAttribute("alert", alertMsg);
 				req.getRequestDispatcher(Constant.Path.REGISTER).forward(req, resp);
 				return;
 			}
+			if (email == null || email == "")
+			{
+				alertMsg = "Number phone is null";
+				req.setAttribute("alert", alertMsg);
+				req.getRequestDispatcher(Constant.Path.REGISTER).forward(req, resp);
+				return;
+			}
+			
 		} catch (SQLException | ServletException | IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -84,8 +92,8 @@ public class RegisterController extends HttpServlet {
 		}
 
 		if (isSuccess) {
-			SendMail sm= new SendMail();
-			sm.sendMail(email, "UNIFY", "Welcome to UNIFY. Please Login to use service. Thanks !");
+			//SendMail sm= new SendMail();
+			//sm.sendMail(email, "UNIFY", "Welcome to UNIFY. Please Login to use service. Thanks !");
 			req.setAttribute("alert", alertMsg);
 			resp.sendRedirect(req.getContextPath() + "/login");
 		} else {

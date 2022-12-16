@@ -41,7 +41,7 @@
 								PC</a></li>
 						<li><a href="${pageContext.request.contextPath }/member/cart">Cart</a></li>
 						<li><a
-							href="${pageContext.request.contextPath }/member/order">Checkout</a></li>
+							href="${pageContext.request.contextPath }/member/checkout">Checkout</a></li>
 						<li><a href="${pageContext.request.contextPath }/login">Login</a></li>
 						<li class="active"><a
 							href="${pageContext.request.contextPath }/register">Register</a></li>

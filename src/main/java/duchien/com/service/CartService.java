@@ -10,9 +10,9 @@ public interface CartService {
 
 	void edit(Cart newCart) throws SQLException;
 
-	void delete(int id) throws SQLException;
+	void delete(String id) throws SQLException;
 
-	Cart get(int id) throws SQLException;
+	Cart get(String id) throws SQLException;
 	
 	List<Cart> getAll() throws SQLException;
 

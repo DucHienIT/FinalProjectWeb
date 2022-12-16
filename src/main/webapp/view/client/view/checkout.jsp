@@ -9,12 +9,12 @@
 		<div class="container">
 			<span class="page-name">Check Out</span>
 			<h1>
-				Maecenas <span class="shop-green">enim</span> sapien
+				<span class="shop-green">Checkout</span>
 			</h1>
 			<ul class="breadcrumb-v4-in">
 				<li><a href="index.html">Home</a></li>
 				<li><a href="">Product</a></li>
-				<li class="active">Shopping Cart</li>
+				<li class="active">Checkout</li>
 			</ul>
 		</div>
 		<!--/end container-->
@@ -24,12 +24,12 @@
 	<!--=== Content Medium Part ===-->
 	<div class="content-md margin-bottom-30">
 		<div class="container">
-			<form class="shopping-cart" action="#">
+			<form class="shopping-cart" action="order" >
 				<div>
 					<div class="header-tags">
 						<div class="overflow-h">
-							<h2>Shopping Cart</h2>
-							<p>Review &amp; edit your product</p>
+							<h2>List receipt</h2>
+							<p>Review &amp; edit your receipt</p>
 							<i class="rounded-x fa fa-check"></i>
 						</div>
 					</div>
@@ -38,10 +38,10 @@
 							<table class="table table-striped">
 								<thead>
 									<tr>
-										<th>Product</th>
-										<th>Price</th>
-										<th>Qty</th>
-										<th>Total</th>
+										<th>Products</th>
+										<th>Total price</th>
+										<th>Address</th>
+										<th>Phone number</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -70,10 +70,25 @@
 							</table>
 						</div>
 					</section>
-
-
 					<div class="coupon-code">
 						<div class="row">
+							<div class="col-sm-4 sm-margin-bottom-30">
+								<h3>Delivery information</h3>
+								<p>Enter your address and number phone</p>
+								<input class="form-control margin-bottom-10" name="address"
+									type="text" placeholder="Enter your address"> <input
+									class="form-control margin-bottom-10" name="sdt" type="text"
+									placeholder="Enter your number phone">
+
+							</div>
+							<div class="col-sm-4 sm-margin-bottom-30">
+								<h3>Discount Code</h3>
+								<p>Enter your coupon code</p>
+								<input class="form-control margin-bottom-10" name="code"
+									type="text">
+								<button type="button" class="btn-u btn-u-sea-shop">Apply
+									Coupon</button>
+							</div>
 							<div class="col-sm-3 col-sm-offset-5">
 								<ul class="list-inline total-result">
 									<li>
@@ -102,47 +117,46 @@
 										</div>
 									</li>
 									<li><br></li>
-									
+
 									<li>
-										<a href="${pageContext.request.contextPath}/member/checkout" class="btn-u btn-u-sea-shop btn-block">Checkout</a>
+										<button class="btn-u btn-u-sea-shop btn-block margin-bottom-20" type="submit">Order</button>
 									</li>
-									
-									
 							</div>
-								</ul>
-							</div>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</form>
 		</div>
-		<!--/end container-->
-	</div>
-	<!--=== End Content Medium Part ===-->
 
-	<!--=== Shop Suvbscribe ===-->
-	<div class="shop-subscribe">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-8 md-margin-bottom-20">
-					<h2>
-						subscribe to our weekly <strong>newsletter</strong>
-					</h2>
-				</div>
-				<div class="col-md-4">
-					<div class="input-group">
-						<input type="text" class="form-control"
-							placeholder="Email your email..."> <span
-							class="input-group-btn">
-							<button class="btn" type="button">
-								<i class="fa fa-envelope-o"></i>
-							</button>
-						</span>
-					</div>
+	</div>
+	<!--/end container-->
+</div>
+<!--=== End Content Medium Part ===-->
+
+<!--=== Shop Suvbscribe ===-->
+<div class="shop-subscribe">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 md-margin-bottom-20">
+				<h2>
+					subscribe to our weekly <strong>newsletter</strong>
+				</h2>
+			</div>
+			<div class="col-md-4">
+				<div class="input-group">
+					<input type="text" class="form-control"
+						placeholder="Email your email..."> <span
+						class="input-group-btn">
+						<button class="btn" type="button">
+							<i class="fa fa-envelope-o"></i>
+						</button>
+					</span>
 				</div>
 			</div>
 		</div>
-		<!--/end container-->
 	</div>
-	<!--=== End Shop Suvbscribe ===-->
+	<!--/end container-->
+</div>
+<!--=== End Shop Suvbscribe ===-->
 </div>

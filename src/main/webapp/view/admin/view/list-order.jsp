@@ -31,7 +31,7 @@
 										<th>index</th>
 										<th>ID</th>
 										<th>Buyer</th>
-										<th>Email</th>
+										<th>Number phone</th>
 										<th>Date</th>
 										<th>Product</th>
 										<th>Quantity</th>
@@ -62,8 +62,7 @@
 
 
 											<td><a
-												href="<c:url value='/admin/order/edit?id=${list.id }'/>"
-												class="center">Edit</a> | <a
+
 												href="<c:url value='/admin/order/delete?id=${list.id }'/>"
 												class="center">Delete</a></td>
 

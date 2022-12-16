@@ -37,7 +37,7 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public Cart get(int id) throws SQLException {
+	public Cart get(String id) throws SQLException {
 		return cartDao.get(id);
 	}
 
@@ -54,7 +54,7 @@ public class CartServiceImpl implements CartService {
 	}
 
 	@Override
-	public void delete(int id) throws SQLException {
+	public void delete(String id) throws SQLException {
 		cartDao.delete(id);
 	}
 }

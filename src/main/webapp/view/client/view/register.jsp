@@ -65,8 +65,8 @@
 								</label>
 							</section>
 							<section>
-								<label class="input"> <input type="email" name="email"
-									placeholder="Email" class="form-control">
+								<label class="input"> <input type="tel" name="email"
+									placeholder="Number phone" class="form-control">
 								</label>
 							</section>
 							<section>

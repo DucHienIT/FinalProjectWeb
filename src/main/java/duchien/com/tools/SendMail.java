@@ -22,7 +22,7 @@ public class SendMail {
                 new javax.mail.Authenticator() {
             @Override
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("maiviensoftware@gmail.com", "maivien1111#");
+                return new PasswordAuthentication("duchien17032002@gmail.com", "hiepdeptrai123");
             }
         });
         try {

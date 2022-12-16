@@ -62,13 +62,13 @@ public class CartDaoImpl extends DBConnection implements CartDao {
 	}
 
 	@Override
-	public void delete(int id) throws SQLException {
+	public void delete(String id) throws SQLException {
 		String sql = "DELETE FROM cart WHERE id = ?";
 		Connection con = super.getJDBCConnection();
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, id);
+			ps.setString(1, id);
 			ps.executeUpdate();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -77,14 +77,14 @@ public class CartDaoImpl extends DBConnection implements CartDao {
 	}
 
 	@Override
-	public Cart get(int id) throws SQLException {
+	public Cart get(String id) throws SQLException {
 		String sql = "SELECT cart.id, cart.buyDate, User.email, user.username, user.id AS user_id "
 				+ "FROM cart INNER JOIN user " + "ON cart.id_user = user.id WHERE cart.id=?";
 		Connection con = super.getJDBCConnection();
 
 		try {
 			PreparedStatement ps = con.prepareStatement(sql);
-			ps.setInt(1, id);
+			ps.setString(1, id);
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
@@ -162,9 +162,4 @@ public class CartDaoImpl extends DBConnection implements CartDao {
 		return cartList;
 	}
 
-	@Override
-	public Cart get(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 }
