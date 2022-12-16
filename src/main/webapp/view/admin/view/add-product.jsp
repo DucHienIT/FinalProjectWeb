@@ -41,6 +41,12 @@
 													<option value="${c.id}">${c.name}</option>
 												</c:forEach>
 											</select>
+											
+											<select name="type">
+												<c:forEach items="${types}" var="t">
+													<option value="${t.id}">${t.name}</option>
+												</c:forEach>
+											</select>
 										</div>
 
 									</div>

@@ -20,5 +20,7 @@ public interface ProductDao {
 	
 	List<Product> seachByCategory(int cate_id)throws SQLException;
 	
+	List<Product> seachByType(int type_id)throws SQLException;
+	
 	List<Product> seachByName(String productName)throws SQLException;
 }

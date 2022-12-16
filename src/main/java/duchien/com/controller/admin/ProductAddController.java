@@ -19,30 +19,38 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import duchien.com.model.Category;
 import duchien.com.model.Product;
+import duchien.com.model.Type;
 import duchien.com.model.User;
 import duchien.com.service.CategoryService;
 import duchien.com.service.ProductService;
+import duchien.com.service.TypeService;
 import duchien.com.service.UserService;
 import duchien.com.service.impl.CategoryServiceImpl;
 import duchien.com.service.impl.ProductServiceImpl;
+import duchien.com.service.impl.TypeServiceImpl;
 import duchien.com.service.impl.UserServiceImpl;
 
 @WebServlet(urlPatterns = { "/admin/product/add" })
 public class ProductAddController extends HttpServlet {
 	ProductService productService = new ProductServiceImpl();
 	CategoryService categoryService = new CategoryServiceImpl();
+	TypeService typeService = new TypeServiceImpl();
+	
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Category> categories = null;
+		List<Type> types = null;
 		try {
 			categories = categoryService.getAll();
+			types = typeService.getAll();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 		req.setAttribute("categories", categories);
+		req.setAttribute("types", types);
 
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/view/admin/view/add-product.jsp");
 		dispatcher.forward(req, resp);
@@ -62,7 +70,10 @@ public class ProductAddController extends HttpServlet {
 					product.setName(item.getString());
 				} else if (item.getFieldName().equals("category")) {
 					product.setCategory(categoryService.get(Integer.parseInt(item.getString())));
-				} else if (item.getFieldName().equals("price")) {
+				}else if (item.getFieldName().equals("type")) {
+					product.setType(typeService.get(Integer.parseInt(item.getString())));
+				} 
+				else if (item.getFieldName().equals("price")) {
 					product.setPrice(Long.parseLong(item.getString()));
 				} else if (item.getFieldName().equals("des")) {
 					product.setDes(item.getString());

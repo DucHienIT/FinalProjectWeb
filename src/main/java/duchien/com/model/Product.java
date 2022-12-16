@@ -9,13 +9,14 @@ public class Product implements Serializable {
 	private String image;
 	private String des;
 	private Category category;//cate_id
+	private Type type;
 	
 
 	public Product() {
 		super();
 	}
 
-	public Product(int id, String name, long price, String image, String des, Category category) {
+	public Product(int id, String name, long price, String image, String des, Category category, Type type) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -23,6 +24,7 @@ public class Product implements Serializable {
 		this.image = image;
 		this.des = des;
 		this.category = category;
+		this.type = type;
 	}
 
 	public int getId() {
@@ -67,6 +69,14 @@ public class Product implements Serializable {
 
 	public Category getCategory() {
 		return category;
+	}
+
+	public Type getType() {
+		return type;
+	}
+
+	public void setType(Type type) {
+		this.type = type;
 	}
 
 	public void setCategory(Category category) {

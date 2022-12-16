@@ -25,7 +25,7 @@
 						<div class="master-slider ms-skin-default" id="masterslider">
 							<div class="ms-slide">
 								<c:url value="${product.image }" var="imgUrl"></c:url>
-								<img class="ms-brd" src="${imgUrl}"
+								<img class="ms-brd" src= "${imgUrl}"
 									data-src="${imgUrl}" alt="${product.name }" height="350" width="350">
 
 							</div>

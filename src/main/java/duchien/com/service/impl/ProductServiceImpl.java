@@ -31,7 +31,7 @@ public class ProductServiceImpl implements ProductService {
 		if (newProduct.getImage() != null) {
 			// XOA ANH CU DI
 			String fileName = oldProduct.getImage();
-			final String dir = "F:\\upload";
+			final String dir = "D:\\upload";
 			File file = new File(dir + "/" + fileName);
 			if (file.exists()) {
 				file.delete();
@@ -68,6 +68,9 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<Product> seachByCategory(int cate_id) throws SQLException {
 		return productDao.seachByCategory(cate_id);
+	}
+	public List<Product> seachByType(int type_id) throws SQLException {
+		return productDao.seachByType(type_id);
 	}
 
 	@Override
