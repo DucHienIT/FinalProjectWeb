@@ -4,7 +4,6 @@
 
 <div class="wrapper">
 
-
 	<!--=== Breadcrumbs v4 ===-->
 	<div class="breadcrumbs-v4">
 		<div class="container">
@@ -15,7 +14,9 @@
 				<li><a href="${pageContext.request.contextPath }">Trang chủ</a></li>
 				<li><a href="${pageContext.request.contextPath }/product/list">Danh
 						sách sản phẩm</a></li>
-				<li class="active">Tìm theo tên sản phẩm</li>
+				<li class="active"><a
+					href="${pageContext.request.contextPath }/product/type?cate_id=${type_id}">Tìm
+						kiếm trong ${type_name}</li>
 			</ul>
 		</div>
 		<!--/end container-->
@@ -168,17 +169,15 @@
 						</ul>
 					</div>
 				</div>
+
 				<!--/end result category-->
-				<c:forEach items="${productSeachByName}" var="p">
-
+				<c:forEach items="${productSeachByType }" var="p">
 					<div class="filter-results">
-
-						<div
-							class="list-product-description product-description-brd margin-bottom-30">
+						<div class="list-product-description product-description-brd">
 							<div class="row">
 
 								<div class="col-sm-4">
-									<c:url value="/Images/${p.image }" var="imgUrl"></c:url>
+									<c:url value="${p.image }" var="imgUrl"></c:url>
 									<a
 										href="${pageContext.request.contextPath }/product/detail?id=${p.id}"><img
 										class="img-responsive sm-margin-bottom-20" src="${imgUrl}"
@@ -189,9 +188,10 @@
 										<ul class="list-inline overflow-h">
 											<li><h4 class="title-price">
 													<a style="font-weight: bold;"
-														href="${pageContext.request.contextPath }/product/detail?id=${p.id}">${p.name}</a>
+														href="${pageContext.request.contextPath }/product/detail?id=${p.id}">${p.name }</a>
+
 												</h4></li>
-											<li><span class="gender text-uppercase">${p.category.name }</span></li>
+											<li><span class="gender text-uppercase">${p.type.name }</span></li>
 											<li class="pull-right">
 												<ul class="list-inline product-ratings">
 													<li><i class="rating-selected fa fa-star"></i></li>
@@ -205,7 +205,6 @@
 										<div class="margin-bottom-10">
 											<span style="color: coral;"
 												class="title-price margin-right-10">${p.price } đ</span>
-
 										</div>
 										<p class="margin-bottom-20">${p.des }</p>
 										<a
@@ -215,9 +214,7 @@
 									</div>
 								</div>
 							</div>
-
 						</div>
-
 					</div>
 				</c:forEach>
 				<!--/end filter resilts-->

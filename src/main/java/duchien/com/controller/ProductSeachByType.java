@@ -21,23 +21,23 @@ import duchien.com.service.TypeService;
 import duchien.com.service.impl.CategoryServiceImpl;
 import duchien.com.service.impl.ProductServiceImpl;
 import duchien.com.service.impl.TypeServiceImpl;
-@WebServlet(urlPatterns="/product/category")
-public class ProductSeachByCategory extends HttpServlet {
+@WebServlet(urlPatterns="/product/type")
+public class ProductSeachByType extends HttpServlet {
 	ProductService productService=new ProductServiceImpl();
 	CategoryService cateService = new CategoryServiceImpl();
 	TypeService typeService = new TypeServiceImpl();
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String cate_id = req.getParameter("cate_id");
-		List<Product> productSeachByCategory = null;
+		String type_id = req.getParameter("type_id");
+		List<Product> productSeachByType = null;
 		List<Category> listCategory = null;
 		List<Type> listType = null;
-		String category_name = null;
+		String type_name = null;
 		try {
-			productSeachByCategory = productService.seachByCategory(Integer.parseInt(cate_id));
+			productSeachByType = productService.seachByType(Integer.parseInt(type_id));
 			listCategory = cateService.getAll();
-			category_name = productSeachByCategory.get(0).getCategory().getName();
+			type_name = productSeachByType.get(0).getType().getName();
 			listType = typeService.getAll();
 		} catch (NumberFormatException | SQLException e) {
 			// TODO Auto-generated catch block
@@ -47,7 +47,7 @@ public class ProductSeachByCategory extends HttpServlet {
 		
 		//System.out.println();
 		req.setAttribute("listType", listType);
-		req.setAttribute("productSeachByCategory", productSeachByCategory);
+		req.setAttribute("productSeachByType", productSeachByType);
 		req.setAttribute("listCategory", listCategory);
 		
 		//Get session username
@@ -56,9 +56,9 @@ public class ProductSeachByCategory extends HttpServlet {
 			User u=(User) session.getAttribute("account");
 			req.setAttribute("username", u.getUsername());
 		}
-		req.setAttribute("category_name", category_name);
-		req.setAttribute("category_id", cate_id);
-		req.getRequestDispatcher("/view/client/view/productSeachByCategory.jsp").forward(req, resp);
+		req.setAttribute("type_name", type_name);
+		req.setAttribute("type_id", type_id);
+		req.getRequestDispatcher("/view/client/view/productSeachByType.jsp").forward(req, resp);
 		
 		
 	}

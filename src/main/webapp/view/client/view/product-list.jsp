@@ -38,9 +38,7 @@
 						<div id="collapseOne" class="panel-collapse collapse in">
 							<div class="panel-body">
 								<ul class="list-unstyled checkbox-list">
-									<form
-										action="${pageContext.request.contextPath }/product/seach"
-										method="get">
+									<form action="${pageContext.request.contextPath }/product/seach" method="get">
 										<input type="text" name="name" /> <input type="submit"
 											value="Tìm kiếm">
 									</form>
@@ -73,8 +71,26 @@
 								</ul>
 							</div>
 						</div>
+						
+						
+						<div id="collapseTwo" class="panel-collapse collapse in">
+							<div class="panel-body">
+								<ul class="list-unstyled checkbox-list">
+									<c:forEach items="${listType}" var="Type">
+										<a href="${pageContext.request.contextPath }/product/type?type_id=${Type.id}">${Type.name}</a>
+										
+										<br>
+									</c:forEach>
+
+								</ul>
+							</div>
+						</div>
+						
 					</div>
 				</div>
+				
+				
+				
 				<!--/end panel group-->
 
 				<div class="panel-group margin-bottom-30" id="accordion-v6">

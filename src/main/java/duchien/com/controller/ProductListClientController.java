@@ -20,33 +20,39 @@ import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
 import duchien.com.model.Category;
 import duchien.com.model.Product;
+import duchien.com.model.Type;
 import duchien.com.model.User;
 import duchien.com.service.CategoryService;
 import duchien.com.service.ProductService;
+import duchien.com.service.TypeService;
 import duchien.com.service.UserService;
 import duchien.com.service.impl.CategoryServiceImpl;
 import duchien.com.service.impl.ProductServiceImpl;
+import duchien.com.service.impl.TypeServiceImpl;
 import duchien.com.service.impl.UserServiceImpl;
 
 @WebServlet(urlPatterns = { "/product/list" })
 public class ProductListClientController extends HttpServlet {
 	ProductService productService = new ProductServiceImpl();
 	CategoryService cateService = new CategoryServiceImpl();
+	TypeService typeService = new TypeServiceImpl();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		List<Product> productList = null;
 		List<Category> listCategory = null;
+		List<Type> listType = null;
 		try {
 			productList = productService.getAll();
 			listCategory = cateService.getAll();
+			listType = typeService.getAll();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		req.setAttribute("productList", productList);
 		req.setAttribute("listCategory", listCategory);
-		
+		req.setAttribute("listType", listType);
 		
 		
 		//Get session username

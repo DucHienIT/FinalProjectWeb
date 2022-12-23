@@ -76,6 +76,20 @@
 								</ul>
 							</div>
 						</div>
+						
+						<div id="collapseTwo" class="panel-collapse collapse in">
+							<div class="panel-body">
+								<ul class="list-unstyled checkbox-list">
+									<c:forEach items="${listType}" var="Type">
+										<a href="${pageContext.request.contextPath }/product/type?type_id=${Type.id}">${Type.name}</a>
+										
+										<br>
+									</c:forEach>
+
+								</ul>
+							</div>
+						</div>
+						
 					</div>
 				</div>
 				<!--/end panel group-->
@@ -167,7 +181,8 @@
 									<a
 										href="${pageContext.request.contextPath }/product/detail?id=${p.id}"><img
 										class="img-responsive sm-margin-bottom-20" src="${imgUrl}"
-										alt=""></a>
+										alt="">
+										</a>
 								</div>
 								<div class="col-sm-8 product-description">
 									<div class="overflow-h margin-bottom-5">
